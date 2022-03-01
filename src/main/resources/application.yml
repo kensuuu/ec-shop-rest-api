@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/ec_shop
+    username: root
+    password: password
+    driver-class-name: com.mysql.jdbc.Driver
+  sql:
+    init:
+      mode: always
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+
+jwt:
+  url: /v1/auth/login
+  header: Authorization
+  prefix: Bearer
+  expiration: 3600000
+  refreshExpiration: 86400000
+  secret: jwt-secret
