@@ -1,9 +1,17 @@
 package com.kensuuu.ecshop.domain.entity;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.Instant;
 
-@Entity(name = "refresh_token")
+@Entity
+@Table(name = "refresh_token")
+@NoArgsConstructor
+@Getter
+@Setter
 public class RefreshToken {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,8 +27,14 @@ public class RefreshToken {
     @Column(nullable = false)
     private Instant expiryDate;
 
-    protected RefreshToken() {
-    }
+    @Column(nullable = false, columnDefinition = "tinyint(1) default 0")
+    private Boolean deleteFlag;
+
+    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Instant createdAt;
+
+    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+    private Instant updatedAt;
 
     public RefreshToken(User user, String token, Instant expiryDate) {
         this.user = user;
