@@ -6,32 +6,38 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.Instant;
-import java.util.List;
 
 @Entity
-@Table(name = "shop")
+@Table(name = "product")
 @NoArgsConstructor
 @Getter
 @Setter
-public class Shop {
+public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
-
     @Column(nullable = false, length = 100)
     private String name;
+
+    @Column(nullable = false)
+    private Integer price;
+
+    @Column(nullable = true)
+    private Integer tax;
 
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @OneToMany(mappedBy = "shop", cascade = CascadeType.ALL)
-    private List<Product> products;
+    @Column(nullable = false, columnDefinition = "TINYINT(1) DEFAULT 0")
+    private Boolean isActive;
 
-    @Column(nullable = false, columnDefinition = "tinyint(1) default 0")
+    @ManyToOne
+    @JoinColumn(name = "shop_id")
+    private Shop shop;
+
+    @Column(nullable = false, columnDefinition = "TINYINT(1) DEFAULT 0")
     private Boolean deleteFlag;
 
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
