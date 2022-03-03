@@ -8,22 +8,19 @@ import java.time.Instant;
 @Entity
 @Table(name = "shops")
 @Getter
-public class Shop {
+public class Shop extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
+    @Column(nullable = false, length = 100)
     private String name;
 
-    private Long categoryId;
-
+    @Column(columnDefinition = "TEXT")
     private String description;
 
-    private Integer deleteFlag;
-
-    private Instant createdAt;
-
-    private Instant updatedAt;
 }

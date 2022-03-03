@@ -14,21 +14,18 @@ import java.util.Set;
         @UniqueConstraint(columnNames = "username")
 })
 @Getter
-public class User {
+public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    @Size(max = 20)
+    @Column(nullable = false, length = 20)
     private String username;
 
-    @NotBlank
-    @Size(max = 50)
+    @Column(nullable = false, length = 50)
     private String email;
 
-    @NotBlank
-    @Size(max = 120)
+    @Column(nullable = false, length = 100)
     private String password;
 
     @ManyToMany(fetch = FetchType.LAZY)
