@@ -1,6 +1,6 @@
 package com.kensuuu.ecshop.controller.v1;
 
-import com.kensuuu.ecshop.common.JwtUtils;
+import com.kensuuu.ecshop.security.filter.JwtUtils;
 import com.kensuuu.ecshop.domain.entity.RefreshToken;
 import com.kensuuu.ecshop.domain.entity.Role;
 import com.kensuuu.ecshop.domain.model.request.LoginRequest;

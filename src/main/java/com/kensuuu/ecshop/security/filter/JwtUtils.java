@@ -1,5 +1,6 @@
-package com.kensuuu.ecshop.common;
+package com.kensuuu.ecshop.security.filter;
 
+import com.kensuuu.ecshop.config.JwtConfig;
 import io.jsonwebtoken.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -13,7 +13,6 @@ spring:
     database: mysql
     hibernate:
       ddl-auto: update
-
 jwt:
   url: /v1/auth/login
   header: Authorization

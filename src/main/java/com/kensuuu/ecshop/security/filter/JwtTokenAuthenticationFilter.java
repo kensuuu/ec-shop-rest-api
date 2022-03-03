@@ -1,7 +1,6 @@
 package com.kensuuu.ecshop.security.filter;
 
-import com.kensuuu.ecshop.common.JwtConfig;
-import com.kensuuu.ecshop.common.JwtUtils;
+import com.kensuuu.ecshop.config.JwtConfig;
 import com.kensuuu.ecshop.security.UserDetailsServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

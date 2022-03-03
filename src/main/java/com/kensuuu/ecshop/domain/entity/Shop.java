@@ -4,25 +4,20 @@ import lombok.Getter;
 
 import javax.persistence.*;
 import java.time.Instant;
-import java.util.Set;
 
 @Entity
-@Table(name = "products")
+@Table(name = "shops")
 @Getter
-public class Product {
+public class Shop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long shopId;
+    private Long userId;
 
     private String name;
 
-    private Integer price;
-
-    private Integer tax;
-
-    private Integer order;
+    private Long categoryId;
 
     private String description;
 
@@ -31,5 +26,4 @@ public class Product {
     private Instant createdAt;
 
     private Instant updatedAt;
-
 }

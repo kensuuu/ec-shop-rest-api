@@ -1,7 +1,7 @@
 package com.kensuuu.ecshop.security;
 
-import com.kensuuu.ecshop.common.JwtConfig;
-import com.kensuuu.ecshop.common.JwtUtils;
+import com.kensuuu.ecshop.config.JwtConfig;
+import com.kensuuu.ecshop.security.filter.JwtUtils;
 import com.kensuuu.ecshop.security.filter.JwtTokenAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -52,7 +52,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests().antMatchers("/v1/auth/**").permitAll()
+                .authorizeRequests().antMatchers(
+                        "/v1/auth/**",
+                        "/v3/api-docs/**",
+                        "/v3/api-docs.yaml/**",
+                        "swagger-ui/**",
+                        "swagger-ui.html/**").permitAll()
                 .anyRequest().authenticated();
         http.addFilterBefore(jwtTokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }

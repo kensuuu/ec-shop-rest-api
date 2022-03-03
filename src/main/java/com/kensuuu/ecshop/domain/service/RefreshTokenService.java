@@ -1,6 +1,6 @@
 package com.kensuuu.ecshop.domain.service;
 
-import com.kensuuu.ecshop.common.JwtUtils;
+import com.kensuuu.ecshop.security.filter.JwtUtils;
 import com.kensuuu.ecshop.domain.entity.RefreshToken;
 import com.kensuuu.ecshop.domain.entity.User;
 import com.kensuuu.ecshop.domain.repository.RefreshTokenRepository;
