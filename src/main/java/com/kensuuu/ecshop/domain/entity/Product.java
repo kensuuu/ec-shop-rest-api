@@ -45,4 +45,12 @@ public class Product {
 
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
     private Instant updatedAt;
+
+    public Product(String name, Integer price, Integer tax, String description, Shop shop) {
+        this.name = name;
+        this.price = price;
+        this.tax = tax;
+        this.description = description;
+        this.shop = shop;
+    }
 }
